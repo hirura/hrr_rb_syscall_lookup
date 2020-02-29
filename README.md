@@ -1,5 +1,7 @@
 # HrrRbSyscallLookup
 
+[![Gem Version](https://badge.fury.io/rb/hrr_rb_syscall_lookup.svg)](https://badge.fury.io/rb/hrr_rb_syscall_lookup)
+
 HrrRbSyscallLookup is a library to provice system call number and name look-up functions using libaudit.
 
 ## Table of Contents
