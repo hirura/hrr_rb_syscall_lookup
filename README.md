@@ -1,8 +1,25 @@
 # HrrRbSyscallLookup
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hrr_rb_syscall_lookup`. To experiment with that code, run `bin/console` for an interactive prompt.
+HrrRbSyscallLookup is a library to provice system call number and name look-up functions using libaudit.
 
-TODO: Delete this and the text above, and describe your gem
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Methods](#methods)
+    - [HrrRbSyscallLookup.name_to_num(String)](hrrrbsyscalllookup.name_to_num(string))
+    - [HrrRbSyscallLookup.num_to_name(Integer)](hrrrbsyscalllookup.num_to_name(integer))
+- [Development](#development)
+- [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
+- [License](#license)
+
+## Requirements
+
+HrrRbSyscallLookup requires the following is available on the system.
+
+- libaudit
 
 ## Installation
 
@@ -22,7 +39,51 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The basic usage for the library is as follows.
+
+```ruby
+require "hrr_rb_syscall_lookup"
+
+hello = "hello\n"
+syscall HrrRbSyscallLookup.name_to_num("write"), $stdout.fileno, hello, hello.size
+# hello
+```
+
+### Methods
+
+#### HrrRbSyscallLookup.name_to_num(name)
+
+The HrrRbSyscallLookup.name_to_num(name) method translates a system call name into a number that the name indicates based on the running machine.
+
+```ruby
+HrrRbSyscallLookup.name_to_num("write")
+# => 1 # on my machine
+```
+
+The method takes an argument name that is an instance of String.
+
+When the machine has the system call, the method returns a number, which an instance of Integer, that the name indicates.
+
+When the machine does not have the system call, the method returns nil.
+
+When the argument is not an instance of String, the method raises TypeError.
+
+#### HrrRbSyscallLookup.num_to_name(num)
+
+The HrrRbSyscallLookup.num_to_name(num) method translates a system call number into a name that the number indicates based on the running machine.
+
+```ruby
+HrrRbSyscallLookup.num_to_name(1)
+# => write # on my machine
+```
+
+The method takes an argument num that is an instance of Integer.
+
+When the machine has the system call, the method returns a name, which an instance of String, that the num indicates.
+
+When the machine does not have the system call, the method returns nil.
+
+When the argument is not an instance of Integer, the method raises TypeError.
 
 ## Development
 
@@ -32,7 +93,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hrr_rb_syscall_lookup. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/hrr_rb_syscall_lookup/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/hirura/hrr_rb_syscall_lookup. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/hirura/hrr_rb_syscall_lookup/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -41,4 +102,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the HrrRbSyscallLookup project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/hrr_rb_syscall_lookup/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the HrrRbSyscallLookup project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/hirura/hrr_rb_syscall_lookup/blob/master/CODE_OF_CONDUCT.md).
