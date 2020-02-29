@@ -8,8 +8,8 @@ HrrRbSyscallLookup is a library to provice system call number and name look-up f
 - [Installation](#installation)
 - [Usage](#usage)
   - [Methods](#methods)
-    - [HrrRbSyscallLookup.name_to_num(String)](hrrrbsyscalllookup.name_to_num(string))
-    - [HrrRbSyscallLookup.num_to_name(Integer)](hrrrbsyscalllookup.num_to_name(integer))
+    - [name_to_num(name)](name_to_numname)
+    - [num_to_name(num)](num_to_namenum)
 - [Development](#development)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
@@ -51,9 +51,9 @@ syscall HrrRbSyscallLookup.name_to_num("write"), $stdout.fileno, hello, hello.si
 
 ### Methods
 
-#### HrrRbSyscallLookup.name_to_num(name)
+#### name_to_num(name)
 
-The HrrRbSyscallLookup.name_to_num(name) method translates a system call name into a number that the name indicates based on the running machine.
+The name_to_num(name) method translates a system call name into a number that the name indicates based on the running machine.
 
 ```ruby
 HrrRbSyscallLookup.name_to_num("write")
@@ -68,9 +68,9 @@ When the machine does not have the system call, the method returns nil.
 
 When the argument is not an instance of String, the method raises TypeError.
 
-#### HrrRbSyscallLookup.num_to_name(num)
+#### num_to_name(num)
 
-The HrrRbSyscallLookup.num_to_name(num) method translates a system call number into a name that the number indicates based on the running machine.
+The num_to_name(num) method translates a system call number into a name that the number indicates based on the running machine.
 
 ```ruby
 HrrRbSyscallLookup.num_to_name(1)
