@@ -17,6 +17,7 @@ jobs:
 addons:
   apt:
     packages:
+    - libaudit1
     - libaudit-dev
 before_install:
   - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
