@@ -5,7 +5,7 @@
 VALUE rb_mHrrRbSyscallLookup;
 
 VALUE
-name_to_num(VALUE self, VALUE name)
+hrr_rb_syscall_lookup_name_to_num(VALUE self, VALUE name)
 {
   int rc;
   Check_Type(name, T_STRING);
@@ -16,7 +16,7 @@ name_to_num(VALUE self, VALUE name)
 }
 
 VALUE
-num_to_name(VALUE self, VALUE num)
+hrr_rb_syscall_lookup_num_to_name(VALUE self, VALUE num)
 {
   const char* name;
   if (RB_TYPE_P(num, T_BIGNUM))
@@ -34,6 +34,6 @@ void
 Init_hrr_rb_syscall_lookup(void)
 {
   rb_mHrrRbSyscallLookup = rb_define_module("HrrRbSyscallLookup");
-  rb_define_singleton_method(rb_mHrrRbSyscallLookup, "name_to_num", name_to_num, 1);
-  rb_define_singleton_method(rb_mHrrRbSyscallLookup, "num_to_name", num_to_name, 1);
+  rb_define_singleton_method(rb_mHrrRbSyscallLookup, "name_to_num", hrr_rb_syscall_lookup_name_to_num, 1);
+  rb_define_singleton_method(rb_mHrrRbSyscallLookup, "num_to_name", hrr_rb_syscall_lookup_num_to_name, 1);
 }
