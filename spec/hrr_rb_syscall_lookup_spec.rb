@@ -3,7 +3,7 @@ RSpec.describe HrrRbSyscallLookup do
     expect(HrrRbSyscallLookup::VERSION).not_to be nil
   end
 
-  describe "#name_to_num" do
+  describe ".name_to_num" do
     context "with valid system call name argument" do
       it "returns a number as same as ausyscall(8)" do
         expect(HrrRbSyscallLookup.name_to_num("write")).to eq(`ausyscall --exact write`.to_i)
@@ -31,7 +31,7 @@ RSpec.describe HrrRbSyscallLookup do
     end
   end
 
-  describe "#num_to_name" do
+  describe ".num_to_name" do
     context "with valid system call number argument" do
       it "returns a name as same as ausyscall(8)" do
         expect(HrrRbSyscallLookup.num_to_name(1)).to eq(`ausyscall --exact 1`.chomp)
