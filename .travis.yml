@@ -25,5 +25,3 @@ before_script:
   - bundle exec rake clean
 script:
   - bundle exec rake compile spec
-after_script:
-  - bundle exec rake clean
